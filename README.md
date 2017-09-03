@@ -1,6 +1,6 @@
 # ITC205_Project
 
-_ suffix have been added to private class variables to diffrentiate them from method variables.
+_ suffix has been added to private class variables to diffrentiate them from method variables.
 
 java swing variables should be suffixed by the element type. Thus, contentPane has been changed into contectPanel.
 
