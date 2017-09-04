@@ -2,20 +2,20 @@ package bcccp.tickets.season;
 
 public class UsageRecord implements IUsageRecord {
 	
-	String ticketId;
-	long startDateTime;
-	long endDateTime;
+	private String ticketId_;
+	private long startDateTime_;
+	private long endDateTime_;
 	
 	
 	
-	public UsageRecord(String ticketId, long startDateTime) {
+	public UsageRecord(String ticketId_, long startDateTime_) {
 		//TODO Implement constructor
 	}
 
 
 
 	@Override
-	public void finalise(long endDateTime) {
+	public void finalise(long endDateTime_) {
 		// TODO Auto-generated method stub
 		
 	}
