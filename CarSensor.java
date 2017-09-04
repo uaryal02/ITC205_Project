@@ -42,11 +42,13 @@ public class CarSensor extends JFrame implements ICarSensor {
 	 * Create the frame.
 	 */
 	public CarSensor(String detectorId, int x, int y) {
+
 		detectorId_ = detectorId;
 		responders = new ArrayList<>();
 		setTitle(detectorId);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 306, 223);
+
 		contentPanel_ = new JPanel();
 		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPanel_(contentPanel_);
@@ -58,6 +60,7 @@ public class CarSensor extends JFrame implements ICarSensor {
 		detectorButton.setBounds(28, 24, 238, 135);
 		detectorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				carIsDetected = !carIsDetected;
 				if (carIsDetected) {
 					detectorButton.setBackground(Color.GREEN);
