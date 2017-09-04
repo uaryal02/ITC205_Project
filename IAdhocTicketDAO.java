@@ -7,4 +7,3 @@ public interface IAdhocTicketDAO {
         public IAdhocTicket findTicketByBarcode(String barcode);
 	public List<IAdhocTicket> getCurrentTickets();
 }
-

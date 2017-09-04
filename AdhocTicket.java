@@ -12,6 +12,7 @@ public class AdhocTicket implements IAdhocTicket {
 	public float charge;
 	public String barcode;
 
+
 	
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
