@@ -13,22 +13,22 @@ public class EntryController
 				   ICarparkObserver,
 		           IEntryController {
 	
-	private IGate entryGate;
-	private ICarSensor outsideSensor; 
-	private ICarSensor insideSensor;
-	private IEntryUI ui;
+	private IGate entryGate_;
+	private ICarSensor outsideSensor_; 
+	private ICarSensor insideSensor_;
+	private IEntryUI entryUi_;
 	
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-	private long entryTime;
-	private String seasonTicketId = null;
+	private ICarpark carpark_;
+	private IAdhocTicket  adhocTicket_ = null;
+	private long entryTime_;
+	private String seasonTicketId_ = null;
 	
 	
 
 	public EntryController(Carpark carpark, IGate entryGate, 
-			ICarSensor os, 
-			ICarSensor is,
-			IEntryUI ui) {
+			ICarSensor outsideSensor, 
+			ICarSensor insideSensor,
+			IEntryUI entryUi) {
 		//TODO Implement constructor
 	}
 
@@ -67,7 +67,7 @@ public class EntryController
 
 
 	@Override
-	public void carEventDetected(String detectorId, boolean detected) {
+	public void carEventDetected(String detectorId, boolean isDetected) {
 		// TODO Auto-generated method stub
 		
 	}

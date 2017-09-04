@@ -21,12 +21,11 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class EntryUI extends JFrame implements IEntryUI {
 
-	private JPanel contentPane;
-	private JTextField displayTextField;
-	private JTextField seasonTicketTextField;
-	private IEntryController controller;
-	private JTextArea ticketPrinterTextArea;
-
+	private JPanel contentPanel_;
+	private JTextField displayTextField_;
+	private JTextField seasonTicketTextField_;
+	private IEntryController controller_;
+	private JTextArea ticketPrinterTextArea_;
 	
 	
 	/**
@@ -54,25 +53,25 @@ public class EntryUI extends JFrame implements IEntryUI {
 		setTitle("Entry Pillar UI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 340, 710);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPanel_ = new JPanel();
+		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPanel_);
+		contentPanel_.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "LCD Display", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(10, 11, 306, 106);
-		contentPane.add(panel);
+		contentPanel_.add(panel);
 		panel.setLayout(null);
 		
-		displayTextField = new JTextField();
-		displayTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		//displayTextField.setText("Push Button");
-		displayTextField.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		displayTextField.setEditable(false);
-		displayTextField.setBounds(10, 15, 288, 82);
-		panel.add(displayTextField);
-		displayTextField.setColumns(10);
+		displayTextField_ = new JTextField();
+		displayTextField_.setHorizontalAlignment(SwingConstants.CENTER);
+		//displayTextField_.setText("Push Button");
+		displayTextField_.setFont(new Font("Tahoma", Font.PLAIN, 32));
+		displayTextField_.setEditable(false);
+		displayTextField_.setBounds(10, 15, 288, 82);
+		panel.add(displayTextField_);
+		displayTextField_.setColumns(10);
 		
 		JButton issueAdhocTicketButton = new JButton("Issue Adhoc Ticket");
 		issueAdhocTicketButton.addActionListener(new ActionListener() {
@@ -152,7 +151,7 @@ public class EntryUI extends JFrame implements IEntryUI {
 	
 	@Override
 	public void display(String message) {
-		displayTextField.setText(message);	
+		displayTextField_.setText(message);	
 	}
 
 	
@@ -172,7 +171,7 @@ public class EntryUI extends JFrame implements IEntryUI {
 	
 	
 	private void insertTicket() {
-		String ticketStr = seasonTicketTextField.getText();
+		String ticketStr = seasonTicketTextField_.getText();
 		controller.ticketInserted(ticketStr);	
 	}
 	
@@ -181,7 +180,7 @@ public class EntryUI extends JFrame implements IEntryUI {
 	private void takeTicket() {
 		controller.ticketTaken();
 		ticketPrinterTextArea.setText("");
-		seasonTicketTextField.setText("");
+		seasonTicketTextField_.setText("");
 	}
 
 	
@@ -204,19 +203,19 @@ public class EntryUI extends JFrame implements IEntryUI {
 		ticketPrinterTextArea.setText(builder.toString());			
 	}
 
-	
+ 	
 	
 	@Override
 	public void discardTicket() {
-		seasonTicketTextField.setText("");
-		ticketPrinterTextArea.setText("");	
+		seasonTicketTextField_.setText("");
+		ticketPrinterTextArea_.setText("");	
 	}
 
 	
 	
 	@Override
 	public boolean ticketPrinted() {
-		return ticketPrinterTextArea.getText().length() != 0;
+		return ticketPrinterTextArea_.getText().length() != 0;
 	}
 
 

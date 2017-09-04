@@ -13,9 +13,9 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class Gate extends JFrame implements IGate {
 
-	private JPanel contentPane;
-	private JTextField gateStatusTextField;
-	private boolean raised;
+	private JPanel contentPanel_;
+	private JTextField gateStatusTextField_;
+	private boolean isRaised_;
 
 	/**
 	 * Launch the application.
@@ -47,10 +47,10 @@ public class Gate extends JFrame implements IGate {
 		setTitle("Gate");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 310, 116);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPanel_ = new JPanel();
+		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPanel_);
+		contentPanel_.setLayout(null);
 		
 		gateStatusTextField = new JTextField();
 		gateStatusTextField.setBackground(Color.RED);
@@ -59,7 +59,7 @@ public class Gate extends JFrame implements IGate {
 		gateStatusTextField.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		gateStatusTextField.setText("Gate Down");
 		gateStatusTextField.setBounds(5, 5, 279, 64);
-		contentPane.add(gateStatusTextField);
+		contentPanel_.add(gateStatusTextField);
 		gateStatusTextField.setColumns(10);
 	}
 

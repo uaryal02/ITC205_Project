@@ -16,11 +16,11 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("serial")
 public class CarSensor extends JFrame implements ICarSensor {
 
-	private JPanel contentPane;
-	private boolean carDetected;
-	private String detectorId;
+	private JPanel contentPanel_;
+	private boolean carIsDetected_;
+	private String detectorId_;
 	
-	private List<ICarSensorResponder> responders;
+	private List<ICarSensorResponder> responders_;
 
 	/**
 	 * Launch the application.
@@ -42,24 +42,27 @@ public class CarSensor extends JFrame implements ICarSensor {
 	 * Create the frame.
 	 */
 	public CarSensor(String detectorId, int x, int y) {
-		this.detectorId = detectorId;
+
+		detectorId_ = detectorId;
 		responders = new ArrayList<>();
 		setTitle(detectorId);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 306, 223);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+
+		contentPanel_ = new JPanel();
+		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPanel_(contentPanel_);
+		contentPanel_.setLayout(null);
 		
-		carDetected = false;
+		carIsDetected = false;
 		JButton detectorButton = new JButton();
 		detectorButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		detectorButton.setBounds(28, 24, 238, 135);
 		detectorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				carDetected = !carDetected;
-				if (carDetected) {
+
+				carIsDetected = !carIsDetected;
+				if (carIsDetected) {
 					detectorButton.setBackground(Color.GREEN);
 					detectorButton.setText("Car Detected");
 				}
@@ -68,13 +71,13 @@ public class CarSensor extends JFrame implements ICarSensor {
 					detectorButton.setText("No Car Detected");
 				}
 				for (ICarSensorResponder responder : responders ) {
-					responder.carEventDetected(detectorId, carDetected);
+					responder.carEventDetected(detectorId_, carIsDetected_);
 				}
 			}
 		});
 		detectorButton.setBackground(Color.RED);
 		detectorButton.setText("No Car Detected");
-		contentPane.add(detectorButton);
+		contentPanel_.add(detectorButton);
 	}
 	
 	public void registerResponder(ICarSensorResponder responder) {
@@ -91,12 +94,12 @@ public class CarSensor extends JFrame implements ICarSensor {
 
 	@Override
 	public String getId() {
-		return detectorId;
+		return detectorId_;
 	}
 
 	@Override
 	public boolean carIsDetected() {
-		return carDetected;
+		return carIsDetected_;
 	}
 	
 	

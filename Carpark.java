@@ -9,12 +9,12 @@ import bcccp.tickets.season.ISeasonTicketDAO;
 
 public class Carpark implements ICarpark {
 	
-	private List<ICarparkObserver> observers;
-	private String carparkId;
-	private int capacity;
-	private int numberOfCarsParked;
-	private IAdhocTicketDAO adhocTicketDAO;
-	private ISeasonTicketDAO seasonTicketDAO;
+	private List<ICarparkObserver> observers_;
+	private String carparkId_;
+	private int capacity_;
+	private int numberOfCarsParked_;
+	private IAdhocTicketDAO adhocTicketDAO_;
+	private ISeasonTicketDAO seasonTicketDAO_;
 	
 	
 	
