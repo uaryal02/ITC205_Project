@@ -23,11 +23,11 @@ import javax.swing.UIManager;
 @SuppressWarnings("serial")
 public class PaystationUI extends JFrame implements IPaystationUI {
 
-	private JPanel contentPane;
-	private JTextField displayTextField;
-	private JTextField barcodeTextField;
-	private IPaystationController controller;
-	private JTextArea ticketPrinterTextArea;
+	private JPanel contentPanel_;
+	private JTextField displayTextField_;
+	private JTextField barcodeTextField_;
+	private IPaystationController controller_;
+	private JTextArea ticketPrinterTextArea_;
 
 	
 	
@@ -56,25 +56,25 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 		setTitle("PayStation UI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 350, 710);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPanel_ = new JPanel();
+		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPanel_);
+		contentPanel_.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "LCD Display", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(5, 5, 320, 106);
-		contentPane.add(panel);
+		contentPanel_.add(panel);
 		panel.setLayout(null);
 		
-		displayTextField = new JTextField();
-		displayTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		//displayTextField.setText("Push Button");
-		displayTextField.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		displayTextField.setEditable(false);
-		displayTextField.setBounds(10, 15, 298, 82);
-		panel.add(displayTextField);
-		displayTextField.setColumns(10);
+		displayTextField_ = new JTextField();
+		displayTextField_.setHorizontalAlignment(SwingConstants.CENTER);
+		//displayTextField_.setText("Push Button");
+		displayTextField_.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		displayTextField_.setEditable(false);
+		displayTextField_.setBounds(10, 15, 298, 82);
+		panel.add(displayTextField_);
+		displayTextField_.setColumns(10);
 		
 		JButton issueAdhocTicketButton = new JButton("Pay");
 		issueAdhocTicketButton.addActionListener(new ActionListener() {
@@ -85,20 +85,20 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 		});
 		issueAdhocTicketButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		issueAdhocTicketButton.setBounds(25, 283, 287, 46);
-		contentPane.add(issueAdhocTicketButton);
+		contentPanel_.add(issueAdhocTicketButton);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ticket Reader", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(15, 122, 310, 153);
-		contentPane.add(panel_1);
+		contentPanel_.add(panel_1);
 		panel_1.setLayout(null);
 		
-		barcodeTextField = new JTextField();
-		barcodeTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		barcodeTextField.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		barcodeTextField.setBounds(10, 21, 285, 53);
-		panel_1.add(barcodeTextField);
-		barcodeTextField.setColumns(10);
+		barcodeTextField_ = new JTextField();
+		barcodeTextField_.setHorizontalAlignment(SwingConstants.CENTER);
+		barcodeTextField_.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		barcodeTextField_.setBounds(10, 21, 285, 53);
+		panel_1.add(barcodeTextField_);
+		barcodeTextField_.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Read Ticket");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -113,17 +113,17 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Paystation Ticket Printer", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_2.setBounds(5, 340, 320, 321);
-		contentPane.add(panel_2);
+		contentPanel_.add(panel_2);
 		panel_2.setLayout(null);
 		
-		ticketPrinterTextArea = new JTextArea();
-		ticketPrinterTextArea.setBackground(Color.LIGHT_GRAY);
-		ticketPrinterTextArea.setText("");
-		ticketPrinterTextArea.setRows(10);
-		ticketPrinterTextArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		ticketPrinterTextArea.setEditable(false);
-		ticketPrinterTextArea.setBounds(10, 22, 295, 230);
-		panel_2.add(ticketPrinterTextArea);
+		ticketPrinterTextArea_ = new JTextArea();
+		ticketPrinterTextArea_.setBackground(Color.LIGHT_GRAY);
+		ticketPrinterTextArea_.setText("");
+		ticketPrinterTextArea_.setRows(10);
+		ticketPrinterTextArea_.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		ticketPrinterTextArea_.setEditable(false);
+		ticketPrinterTextArea_.setBounds(10, 22, 295, 230);
+		panel_2.add(ticketPrinterTextArea_);
 		
 		JButton btnNewButton_1 = new JButton("Take Ticket");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -153,7 +153,7 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 	
 	
 	private void ticketInserted() {
-		String ticketStr = barcodeTextField.getText();
+		String ticketStr = barcodeTextField_.getText();
 		controller.ticketInserted(ticketStr);	
 	}
 	
@@ -161,7 +161,7 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 	
 	@Override
 	public void display(String message) {
-		displayTextField.setText(message);	
+		displayTextField_.setText(message);	
 	}
 
 	
@@ -182,8 +182,8 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 	
 	private void takeTicket() {
 		controller.ticketTaken();
-		ticketPrinterTextArea.setText("");
-		barcodeTextField.setText("");
+		ticketPrinterTextArea_.setText("");
+		barcodeTextField_.setText("");
 	}
 
 	
@@ -206,7 +206,7 @@ public class PaystationUI extends JFrame implements IPaystationUI {
 		builder.append("Charge     : " + String.format("%.2f", charge) + "\n");
 		builder.append("Barcode    : " + barcode + "\n");
 		
-		ticketPrinterTextArea.setText(builder.toString());			
+		ticketPrinterTextArea_.setText(builder.toString());			
 	}
 
 	

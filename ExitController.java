@@ -11,15 +11,15 @@ public class ExitController
 		implements ICarSensorResponder,
 		           IExitController {
 	
-	private IGate exitGate;
-	private ICarSensor insideSensor;
-	private ICarSensor outsideSensor; 
-	private IExitUI ui;
+	private IGate exitGate_;
+	private ICarSensor insideSensor_;
+	private ICarSensor outsideSensor_; 
+	private IExitUI ui_;
 	
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-	private long exitTime;
-	private String seasonTicketId = null;
+	private ICarpark carpark_;
+	private IAdhocTicket  adhocTicket_ = null;
+	private long exitTime_;
+	private String seasonTicketId_ = null;
 	
 	
 
@@ -49,7 +49,7 @@ public class ExitController
 
 
 	@Override
-	public void carEventDetected(String detectorId, boolean detected) {
+	public void carEventDetected(String detectorId, boolean isDetected) {
 		// TODO Auto-generated method stub
 		
 	}
