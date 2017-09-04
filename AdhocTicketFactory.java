@@ -7,6 +7,5 @@ public class AdhocTicketFactory implements IAdhocTicketFactory {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }
+

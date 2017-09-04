@@ -5,11 +5,11 @@ import bcccp.tickets.season.IUsageRecordFactory;
 
 public class SeasonTicketDAO implements ISeasonTicketDAO {
 
-	private IUsageRecordFactory factory;
+	private IUsageRecordFactory factory_;
 
 	
 	
-	public SeasonTicketDAO(IUsageRecordFactory factory) {
+	public SeasonTicketDAO(IUsageRecordFactory factory_) {
 		//TOD Implement constructor
 	}
 
@@ -37,15 +37,11 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 		return 0;
 	}
 
-
-
 	@Override
 	public ISeasonTicket findTicketById(String ticketId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public void recordTicketEntry(String ticketId) {
@@ -53,14 +49,9 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 		
 	}
 
-
-
 	@Override
 	public void recordTicketExit(String ticketId) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	
-	
+	}	
 }

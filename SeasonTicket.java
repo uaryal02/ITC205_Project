@@ -6,18 +6,18 @@ import java.util.List;
 
 public class SeasonTicket implements ISeasonTicket {
 	
-	private List<IUsageRecord> usages;
-	private IUsageRecord currentUsage = null;
+	private List<IUsageRecord> usages_;
+	private IUsageRecord currentUsage_ = null;
 	
-	private String ticketId;
-	private String carparkId;
-	private long startValidPeriod;
-	private long endValidPeriod;
+	private String ticketId_;
+	private String carparkId_;
+	private long startValidPeriod_;
+	private long endValidPeriod_;
 	
-	public SeasonTicket (String ticketId, 
-			             String carparkId, 
-			             long startValidPeriod,
-			             long endValidPeriod) {
+	public SeasonTicket (String ticketId_, 
+			             String carparkId_, 
+			             long startValidPeriod_,
+			             long endValidPeriod_) {
 		//TDO Implement constructor
 	}
 
@@ -46,7 +46,7 @@ public class SeasonTicket implements ISeasonTicket {
 	}
 
 	@Override
-	public boolean inUse() {
+	public boolean isUse() {
 		// TODO Auto-generated method stub
 		return false;
 	}

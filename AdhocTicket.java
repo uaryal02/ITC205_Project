@@ -4,19 +4,25 @@ import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
 	
-	private String carparkId;
-	private int ticketNo;
-	private long entryDateTime;
-	private long paidDateTime;
-	private long exitDateTime;
-	private float charge;
-	private String barcode;
+	public String carparkId;
+	public int ticketNo;
+	public long entryDateTime;
+	public long paidDateTime;
+	public long exitDateTime;
+	public float charge;
+	public String barcode;
+
 
 	
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
 		//TDO Implement constructor
-	}
+	this.carparkId= carparkId;
+        this.ticketNo= ticketNo;
+        this.barcode= barcode;
+        
+        
+        }
 
 
 	@Override
@@ -62,7 +68,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 
 	@Override
-	public void pay(long dateTime, float charge) {
+	public void getPay(long dateTime, float charge) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -90,7 +96,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 
 	@Override
-	public void exit(long dateTime) {
+	public void getExit(long dateTime) {
 		// TODO Auto-generated method stub
 		
 	}

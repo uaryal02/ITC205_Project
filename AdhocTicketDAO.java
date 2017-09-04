@@ -3,13 +3,18 @@ package bcccp.tickets.adhoc;
 import java.util.List;
 
 public class AdhocTicketDAO  implements IAdhocTicketDAO  {
-
-	private IAdhocTicketFactory factory;
-	private int currentTicketNo;
+        
+        public String carkparkId;
+        public String barcode;
+        public int currentTicketNo;
 
 	
 	
-	public AdhocTicketDAO(IAdhocTicketFactory factory) {
+	public AdhocTicketDAO(String carkparkId, String barcode,
+                int currentTicketNo) {
+            this.carkparkId = carkparkId;
+            this.currentTicketNo= currentTicketNo;
+            this.barcode= barcode;
 		//TODO Implement constructor
 	}
 
