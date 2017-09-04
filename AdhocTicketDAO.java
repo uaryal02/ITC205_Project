@@ -4,17 +4,17 @@ import java.util.List;
 
 public class AdhocTicketDAO  implements IAdhocTicketDAO  {
         
-        public String carkparkId;
-        public String barcode;
-        public int currentTicketNo;
+        private String carkparkId_;
+        private String barcode_;
+        private int currentTicketNo_;
 
 	
 	
-	public AdhocTicketDAO(String carkparkId, String barcode,
+	public AdhocTicketDAO(String carkparkId_, String barcode_,
                 int currentTicketNo) {
-            this.carkparkId = carkparkId;
-            this.currentTicketNo= currentTicketNo;
-            this.barcode= barcode;
+            this.carkparkId_ = carkparkId_;
+            this.currentTicketNo_= currentTicketNo_;
+            this.barcode_= barcode_;
 		//TODO Implement constructor
 	}
 
