@@ -53,5 +53,6 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 	public void recordTicketExit(String ticketId) {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+	
 }
