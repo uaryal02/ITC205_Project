@@ -6,15 +6,15 @@ import bcccp.tickets.adhoc.IAdhocTicket;
 public class PaystationController 
 		implements IPaystationController {
 	
-	private IPaystationUI ui;	
-	private ICarpark carpark;
+	private IPaystationUI ui_;	
+	private ICarpark carpark_;
 
-	private IAdhocTicket  adhocTicket = null;
-	private float charge;
+	private IAdhocTicket  adhocTicket_ = null;
+	private float charge_;
 	
 	
 
-	public PaystationController(ICarpark carpark, IPaystationUI ui) {
+	public PaystationController(ICarpark carpark_, IPaystationUI ui_) {
 		//TODO Implement constructor
 	}
 
