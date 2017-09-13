@@ -18,19 +18,24 @@ public class SeasonTicket implements ISeasonTicket {
 			             String carparkId_, 
 			             long startValidPeriod_,
 			             long endValidPeriod_) {
-		//TDO Implement constructor
+		this.ticketId = ticketId;
+		this.carparkId =carparkId;
+		this.startValidPeriod = startValidPeriod;
+		this.endValidPeriod = endValidPeriod;
+		
+		usages = new ArrayList<IUsageRecord>();
 	}
 
 	@Override
 	public String getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return ticketId;
 	}
 
 	@Override
 	public String getCarparkId() {
 		// TODO Auto-generated method stub
-		return null;
+		return startValidPeriod;
 	}
 
 	@Override
@@ -42,38 +47,54 @@ public class SeasonTicket implements ISeasonTicket {
 	@Override
 	public long getEndValidPeriod() {
 		// TODO Auto-generated method stub
-		return 0;
+		return endValidPeriod;
 	}
 
 	@Override
 	public boolean isUse() {
 		// TODO Auto-generated method stub
-		return false;
+		return currentUsage_ != null;
 	}
 
 	@Override
 	public void recordUsage(IUsageRecord record) {
-		// TODO Auto-generated method stub
+		currentUsage = record;
+		if (!usages.contains(record) ) {
+			usages.add(record);
+		}
 		
 	}
 
 	@Override
 	public IUsageRecord getCurrentUsageRecord() {
 		// TODO Auto-generated method stub
-		return null;
+		return currentUsage;
 	}
 
 	@Override
 	public void endUsage(long dateTime) {
-		// TODO Auto-generated method stub
+		if (currentUsage == null) throw new RuntimeException("SeasonTicket.endUsage : ticket is not in use");
+		
+		currentUsage.finalise(dateTime);
+		currentUsage = null;
 		
 	}
 
 	@Override
 	public List<IUsageRecord> getUsageRecords() {
 		// TODO Auto-generated method stub
-		return null;
+		return usageRecords;
 	}
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Carpark    : " + carparkId + "\n" +
+		       "Ticket No  : " + ticketId + "\n" );
+		for (IUsageRecord usage : usages) {
+			builder.append(usage.toString() + "\n");
+		}
+		return builder.toString();
+	}
+	
 
 
 }
