@@ -6,10 +6,7 @@ public class UsageRecordFactory implements IUsageRecordFactory {
 
 	public IUsageRecord make(String ticketId_, long startDateTime_)) {
 
-	public IUsageRecord make(String ticketId_, long startDateTime_) {
-
-		// TODO Auto-generated method stub
-		return null;
+	return new UsageRecord(ticketId, startDateTime);
 	}
 
 
