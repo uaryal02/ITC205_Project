@@ -3,9 +3,9 @@ package bcccp.tickets.adhoc;
 public class AdhocTicketFactory implements IAdhocTicketFactory {
 
 	@Override
-	public IAdhocTicket make(String carparkId_, int ticketNo_) {
-		// TODO Auto-generated method stub
-		return null;
+	public IAdhocTicket make(String carparkId, int ticketNo) {
+		String barcode = "A" + Integer.toHexString(ticketNo);
+		return new AdhocTicket(carparkId, ticketNo, barcode);
 	}
 }
 
