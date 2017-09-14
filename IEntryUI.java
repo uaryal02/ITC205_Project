@@ -5,7 +5,7 @@ public interface IEntryUI {
 	public void deregisterController();
 	
 	public void display(String message);
-	public void printTicket(String id, int ticketNo, long entryDatetime, String barcode);
+	public void printTicket(String id, int tNo, long entryDatetime, String barcode);
 	public boolean ticketPrinted();
 	public void discardTicket();
 	public void beep();
