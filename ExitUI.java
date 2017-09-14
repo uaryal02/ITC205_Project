@@ -21,7 +21,7 @@ import javax.swing.UIManager;
 @SuppressWarnings("serial")
 public class ExitUI extends JFrame implements IExitUI {
 
-	private JPanel contentPanel_;
+	private JPanel contentPane_;
 	private JTextField displayTextField_;
 	private JTextField ticketReaderTextField_;
 	private IExitController controller_;
@@ -49,19 +49,19 @@ public class ExitUI extends JFrame implements IExitUI {
 	/**
 	 * Create the frame.
 	 */
-	public exitUI(int x, int y) {
+	public ExitUI(int x, int y) {
 		setTitle("Exit Pillar UI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 340, 380);
-		contentPanel_ = new JPanel();
-		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPanel_);
-		contentPanel_.setLayout(null);
+		contentPane_ = new JPanel();
+		contentPane_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane_);
+		contentPane_.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "LCD Display", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(5, 5, 316, 106);
-		contentPanel_.add(panel);
+		contentPane_.add(panel);
 		panel.setLayout(null);
 		
 		displayTextField_ = new JTextField();
@@ -74,12 +74,12 @@ public class ExitUI extends JFrame implements IExitUI {
 		displayTextField_.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ticket Reader", TitledBorder.LEADING, 				  TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ticket Reader", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(15, 115, 306, 153);
-		contentPanel_.add(panel_1);
+		contentPane_.add(panel_1);
 		panel_1.setLayout(null);
 		
-		ticketReaderTextField- = new JTextField();
+		ticketReaderTextField_ = new JTextField();
 		ticketReaderTextField_.setHorizontalAlignment(SwingConstants.CENTER);
 		ticketReaderTextField_.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		ticketReaderTextField_.setBounds(10, 21, 285, 53);
@@ -98,7 +98,7 @@ public class ExitUI extends JFrame implements IExitUI {
 		
 		JButton btnNewButton_1 = new JButton("Take Ticket");
 		btnNewButton_1.setBounds(25, 279, 285, 45);
-		contentPanel_.add(btnNewButton_1);
+		contentPane_.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				takeTicket();
@@ -111,7 +111,7 @@ public class ExitUI extends JFrame implements IExitUI {
 	
 	@Override
 	public void registerController(IExitController controller) {
-		controller = controller_;
+		controller_ = controller;
 	}
 
 	
@@ -124,8 +124,8 @@ public class ExitUI extends JFrame implements IExitUI {
 	
 	
 	@Override
-	public void display(String message) {
-		displayTextField_.setText(message);	
+	public void display(String message_) {
+		displayTextField_.setText(message_);	
 	}
 
 	
@@ -152,8 +152,8 @@ public class ExitUI extends JFrame implements IExitUI {
 	
 	
 	@SuppressWarnings("unused")
-	private void log(String message) {
-		System.out.println("EntryUI : " + message);
+	private void log(String message_) {
+		System.out.println("EntryUI : " + message_);
 	}
 
 	

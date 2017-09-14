@@ -13,9 +13,9 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class Gate extends JFrame implements IGate {
 
-	private JPanel contentPanel_;
+	private JPanel contentPane_;
 	private JTextField gateStatusTextField_;
-	private boolean isRaised_;
+	private boolean raised_;
 
 	/**
 	 * Launch the application.
@@ -47,45 +47,45 @@ public class Gate extends JFrame implements IGate {
 		setTitle("Gate");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 310, 116);
-		contentPanel_ = new JPanel();
-		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPanel_);
-		contentPanel_.setLayout(null);
+		contentPane_ = new JPanel();
+		contentPane_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane_);
+		contentPane_.setLayout(null);
 		
-		gateStatusTextField = new JTextField();
-		gateStatusTextField.setBackground(Color.RED);
-		gateStatusTextField.setEditable(false);
-		gateStatusTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		gateStatusTextField.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		gateStatusTextField.setText("Gate Down");
-		gateStatusTextField.setBounds(5, 5, 279, 64);
-		contentPanel_.add(gateStatusTextField);
-		gateStatusTextField.setColumns(10);
+		gateStatusTextField_ = new JTextField();
+		gateStatusTextField_.setBackground(Color.RED);
+		gateStatusTextField_.setEditable(false);
+		gateStatusTextField_.setHorizontalAlignment(SwingConstants.CENTER);
+		gateStatusTextField_.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		gateStatusTextField_.setText("Gate Down");
+		gateStatusTextField_.setBounds(5, 5, 279, 64);
+		contentPane_.add(gateStatusTextField_);
+		gateStatusTextField_.setColumns(10);
 	}
 
 	
 	
 	@Override
 	public void raise() {
-		gateStatusTextField.setBackground(Color.GREEN);
-		gateStatusTextField.setText("Gate Up");
-		raised = true;		
+		gateStatusTextField_.setBackground(Color.GREEN);
+		gateStatusTextField_.setText("Gate Up");
+		raised_ = true;		
 	}
 
 	
 	
 	@Override
 	public void lower() {
-		gateStatusTextField.setBackground(Color.RED);
-		gateStatusTextField.setText("Gate Down");
-		raised = false;		
+		gateStatusTextField_.setBackground(Color.RED);
+		gateStatusTextField_.setText("Gate Down");
+		raised_ = false;		
 	}
 
 	
 	
 	@Override
 	public boolean isRaised() {
-		return raised;
+		return raised_;
 	}
 
 	
