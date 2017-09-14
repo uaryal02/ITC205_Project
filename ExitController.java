@@ -35,11 +35,11 @@ public class ExitController
 			ICarSensor os, 
 			IExitUI ui) {
 		
-		carpark = carpark_;
-		exitGate = exitGate_;
-		is = is_;
-		os = os_;
-		ui = ui_;
+		carpark_ = carpark;
+		exitGate_ = exitGate;
+		is_ = is;
+		os_ = os;
+		ui_ = ui;
 		
 		os.registerResponder();
 		is.registerResponder();
