@@ -42,7 +42,7 @@ public class CarSensor extends JFrame implements ICarSensor {
 	 * Create the frame.
 	 */
 	public CarSensor(String detectorId, int x, int y) {
-		detectorId = detectorId_;
+		detectorId_ = detectorId;
 		responders_ = new ArrayList<>();
 		setTitle(detectorId);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
