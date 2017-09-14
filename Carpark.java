@@ -23,10 +23,10 @@ public class Carpark implements ICarpark {
 			IAdhocTicketDAO adhocTicketDAO, 
 			ISeasonTicketDAO seasonTicketDAO) {
 		carparkId = name;
-		capacity = capacity_;
+		capacity_ = capacity;
 		observers_ = new ArrayList<>();
-		adhocTicketDAO = adhocTicketDAO_;
-		seasonTicketDAO = seasonTicketDAO_;
+		adhocTicketDAO_ = adhocTicketDAO;
+		seasonTicketDAO_ = seasonTicketDAO;
 	}
 
 	
