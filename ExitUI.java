@@ -111,7 +111,7 @@ public class ExitUI extends JFrame implements IExitUI {
 	
 	@Override
 	public void registerController(IExitController controller) {
-		controller = controller_;
+		controller_ = controller;
 	}
 
 	
