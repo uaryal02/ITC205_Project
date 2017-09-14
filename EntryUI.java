@@ -21,11 +21,12 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class EntryUI extends JFrame implements IEntryUI {
 
-	private JPanel contentPanel_;
+	private JPanel contentPane_;
 	private JTextField displayTextField_;
 	private JTextField seasonTicketTextField_;
 	private IEntryController controller_;
 	private JTextArea ticketPrinterTextArea_;
+
 	
 	
 	/**
@@ -53,15 +54,15 @@ public class EntryUI extends JFrame implements IEntryUI {
 		setTitle("Entry Pillar UI");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 340, 710);
-		contentPanel_ = new JPanel();
-		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPanel_);
-		contentPanel_.setLayout(null);
+		contentPane_ = new JPanel();
+		contentPane_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane_);
+		contentPane_.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "LCD Display", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(10, 11, 306, 106);
-		contentPanel_.add(panel);
+		contentPane_.add(panel);
 		panel.setLayout(null);
 		
 		displayTextField_ = new JTextField();
@@ -82,20 +83,20 @@ public class EntryUI extends JFrame implements IEntryUI {
 		});
 		issueAdhocTicketButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		issueAdhocTicketButton.setBounds(15, 119, 287, 46);
-		contentPane.add(issueAdhocTicketButton);
+		contentPane_.add(issueAdhocTicketButton);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Season Ticket Reader", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBounds(10, 176, 306, 153);
-		contentPane.add(panel_1);
+		contentPane_.add(panel_1);
 		panel_1.setLayout(null);
 		
-		seasonTicketTextField = new JTextField();
-		seasonTicketTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		seasonTicketTextField.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		seasonTicketTextField.setBounds(10, 21, 285, 53);
-		panel_1.add(seasonTicketTextField);
-		seasonTicketTextField.setColumns(10);
+		seasonTicketTextField_ = new JTextField();
+		seasonTicketTextField_.setHorizontalAlignment(SwingConstants.CENTER);
+		seasonTicketTextField_.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		seasonTicketTextField_.setBounds(10, 21, 285, 53);
+		panel_1.add(seasonTicketTextField_);
+		seasonTicketTextField_.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Validate Season Ticket");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -110,17 +111,17 @@ public class EntryUI extends JFrame implements IEntryUI {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Entry Ticket Printer", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_2.setBounds(5, 340, 311, 321);
-		contentPane.add(panel_2);
+		contentPane_.add(panel_2);
 		panel_2.setLayout(null);
 		
-		ticketPrinterTextArea = new JTextArea();
-		ticketPrinterTextArea.setBackground(Color.LIGHT_GRAY);
-		ticketPrinterTextArea.setText("");
-		ticketPrinterTextArea.setRows(10);
-		ticketPrinterTextArea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		ticketPrinterTextArea.setEditable(false);
-		ticketPrinterTextArea.setBounds(10, 22, 285, 230);
-		panel_2.add(ticketPrinterTextArea);
+		ticketPrinterTextArea_ = new JTextArea();
+		ticketPrinterTextArea_.setBackground(Color.LIGHT_GRAY);
+		ticketPrinterTextArea_.setText("");
+		ticketPrinterTextArea_.setRows(10);
+		ticketPrinterTextArea_.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		ticketPrinterTextArea_.setEditable(false);
+		ticketPrinterTextArea_.setBounds(10, 22, 285, 230);
+		panel_2.add(ticketPrinterTextArea_);
 		
 		JButton btnNewButton_1 = new JButton("Take Ticket");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -137,14 +138,14 @@ public class EntryUI extends JFrame implements IEntryUI {
 	
 	@Override
 	public void registerController(IEntryController controller) {
-		this.controller = controller;
+		controller_ = controller;
 	}
 
 	
 	
 	@Override
 	public void deregisterController() {
-		this.controller = null;	
+		controller_ = null;	
 	}
 	
 	
@@ -165,21 +166,21 @@ public class EntryUI extends JFrame implements IEntryUI {
 	
 	private void pushButton() {
 		log("pushButton : calling button pushed");
-		controller.buttonPushed();	
+		controller_.buttonPushed();	
 	}
 
 	
 	
 	private void insertTicket() {
 		String ticketStr = seasonTicketTextField_.getText();
-		controller.ticketInserted(ticketStr);	
+		controller_.ticketInserted(ticketStr);	
 	}
 	
 	
 	
 	private void takeTicket() {
-		controller.ticketTaken();
-		ticketPrinterTextArea.setText("");
+		controller_.ticketTaken();
+		ticketPrinterTextArea_.setText("");
 		seasonTicketTextField_.setText("");
 	}
 
@@ -200,10 +201,10 @@ public class EntryUI extends JFrame implements IEntryUI {
 		builder.append("Entry Time : " + entryDate + "\n");
 		builder.append("Barcode    : " + barcode + "\n");
 		
-		ticketPrinterTextArea.setText(builder.toString());			
+		ticketPrinterTextArea_.setText(builder.toString());			
 	}
 
- 	
+	
 	
 	@Override
 	public void discardTicket() {
