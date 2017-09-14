@@ -4,7 +4,7 @@ public interface IExitUI {
 
 	public void registerController(IExitController controller);
 	public void deregisterController();
-	public void display(String message);
+	public void display(String message_);
 	public void beep();
 	public void discardTicket();	
 	
