@@ -16,8 +16,8 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("serial")
 public class CarSensor extends JFrame implements ICarSensor {
 
-	private JPanel contentPanel_;
-	private boolean carIsDetected_;
+	private JPanel contentPane_;
+	private boolean carDetected_;
 	private String detectorId_;
 	
 	private List<ICarSensorResponder> responders_;
@@ -42,27 +42,24 @@ public class CarSensor extends JFrame implements ICarSensor {
 	 * Create the frame.
 	 */
 	public CarSensor(String detectorId, int x, int y) {
-
-		detectorId_ = detectorId;
-		responders = new ArrayList<>();
+		detectorId = detectorId_;
+		responders_ = new ArrayList<>();
 		setTitle(detectorId);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(x, y, 306, 223);
-
-		contentPanel_ = new JPanel();
-		contentPanel_.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPanel_(contentPanel_);
-		contentPanel_.setLayout(null);
+		contentPane_ = new JPanel();
+		contentPane_.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane_);
+		contentPane_.setLayout(null);
 		
-		carIsDetected = false;
+		carDetected_ = false;
 		JButton detectorButton = new JButton();
 		detectorButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		detectorButton.setBounds(28, 24, 238, 135);
 		detectorButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				carIsDetected = !carIsDetected;
-				if (carIsDetected) {
+				carDetected_ = !carDetected_;
+				if (carDetected_) {
 					detectorButton.setBackground(Color.GREEN);
 					detectorButton.setText("Car Detected");
 				}
@@ -70,25 +67,25 @@ public class CarSensor extends JFrame implements ICarSensor {
 					detectorButton.setBackground(Color.RED);
 					detectorButton.setText("No Car Detected");
 				}
-				for (ICarSensorResponder responder : responders ) {
-					responder.carEventDetected(detectorId_, carIsDetected_);
+				for (ICarSensorResponder responder : responders_ ) {
+					responder.carEventDetected(detectorId_, carDetected_);
 				}
 			}
 		});
 		detectorButton.setBackground(Color.RED);
 		detectorButton.setText("No Car Detected");
-		contentPanel_.add(detectorButton);
+		contentPane_.add(detectorButton);
 	}
 	
 	public void registerResponder(ICarSensorResponder responder) {
-		if (!responders.contains(responder)) {
-			responders.add(responder);
+		if (!responders_.contains(responder)) {
+			responders_.add(responder);
 		}
 	}
 	
 	public void deregisterResponder(ICarSensorResponder responder) {
-		if (responders.contains(responder)) {
-			responders.remove(responder);
+		if (responders_.contains(responder)) {
+			responders_.remove(responder);
 		}
 	}
 
@@ -99,7 +96,7 @@ public class CarSensor extends JFrame implements ICarSensor {
 
 	@Override
 	public boolean carIsDetected() {
-		return carIsDetected_;
+		return carDetected_;
 	}
 	
 	
